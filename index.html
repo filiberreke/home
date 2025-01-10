@@ -1,1 +1,46 @@
-<!--Test-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Filiberre.ke</title>
+<style>
+div { aspect-ratio: 1 }
+
+.container {
+  --d: 6.5em; /* image size */
+  --rel: 1; /* how much extra space we want between images, 1 = 1 image size */
+  --ba: 1turn/var(--m);  /* base angle = 1 full turn divided by number of edges */
+  /* (1 + var(--rel))*var(--d) = polygon edge = img size + extra space */
+  --r: calc(.5*(1 + var(--rel))*var(--d)/tan(.5*var(--ba))); /* circle radius */
+  display: grid;
+  width: calc(2*var(--r) + var(--d)); /* container size */
+  background: #FFF
+}
+
+.container a {
+  grid-area: 1/ 1;
+  place-self: center;
+  width: var(--d);
+  --ca: calc(var(--i)*var(--ba));
+  transform: 
+    rotate(var(--ca)) 
+    translate(var(--r))
+    rotate(calc(-1*var(--ca)))
+}
+
+img { max-width: 100% }
+</style>
+</;ead>
+<body>
+<div class="container" style="--m: 8; text-align: center;">
+  <a href="https://bsky.app/profile/filiberre.ke">
+    <img src="images/64px-Bluesky_Logo.png" alt="Bsky profiel"/> filiberre.ke
+  </a>
+  <a href="https://bsky.app/profile/tda-labeler.bsky.social" style="--i: 1"> tda-labeler.bsky.social
+    <img src="images/tda-logo.png" alt="TdA Labeler"/>
+  </a>
+  <!-- the rest of those placed on the circle -->
+</div>
+<!--p align="center"><a href="https://bsky.app/profile/filiberre.ke"><img width="50" src="images/64px-Bluesky_Logo.png" border="0"/></a></p-->
+
+</body>
+</html>
